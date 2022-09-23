@@ -2,13 +2,13 @@ namespace Assignment3.Entities;
 
 public class User
 {
-    int Id { get; set; }
+    public int Id { get; set; }
 
     [StringLength(100), Required]
-    string? Name { get; set; }
+    public string? Name { get; set; }
 
-    [StringLength(100), Required]
-    string? Email { get; set; }
+    [StringLength(100), Required, EmailAddress]
+    public string? Email { get; set; }
 
-    List<Task>? Tasks { get; set; }
+    public List<Task>? Tasks { get; set; }
 }

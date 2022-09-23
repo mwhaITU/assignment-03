@@ -1,20 +1,19 @@
 namespace Assignment3.Entities;
 
-
 public class Task
 {
-    int Id { get; set; }
+    public int Id { get; set; }
 
     [StringLength(100), Required]
-    string? Title { get; set; }
+    public string? Title { get; set; }
 
-    User? AssignedTo { get; set; }
+    public User? AssignedTo { get; set; }
 
     [StringLength(int.MaxValue)]
-    string? Description { get; set; }
+    public string? Description { get; set; }
 
     [Required]
-    string? State { get; set; }
+    public State State { get; set; }
 
-    ICollection<Tag>? tags { get; set; }
+    public ICollection<Tag>? tags { get; set; }
 }
