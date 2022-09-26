@@ -1,5 +1,5 @@
 namespace Assignment3.Entities;
-
+using Assignment3.Core;
 public partial class KanbanContext : DbContext
     {
         public KanbanContext(DbContextOptions<KanbanContext> options)

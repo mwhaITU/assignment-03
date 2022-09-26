@@ -1,4 +1,5 @@
 namespace Assignment3.Entities;
+using Assignment3.Core;
 
 public class Task
 {
