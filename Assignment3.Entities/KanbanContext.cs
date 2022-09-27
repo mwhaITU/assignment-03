@@ -13,8 +13,8 @@ public partial class KanbanContext : DbContext
     public virtual DbSet<Task> Tasks => Set<Task>();
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        => optionsBuilder.UseNpgsql("Server=localhost,41953;User Id=postgres;Password=eikb0009;Database=postgres", 
-        options => options.UseAdminDatabase("postgres"));
+        => optionsBuilder.UseNpgsql("Server=localhost,41953;User Id=postgres;Password=ebbp0009;Database=postgres", 
+        options => options.UseAdminDatabase("helloThere"));
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Task>().Property(t => t.State).HasConversion(s => s.ToString(), s => (State)Enum.Parse(typeof(State), s));
