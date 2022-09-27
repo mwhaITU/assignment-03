@@ -2,7 +2,6 @@
 // See https://aka.ms/new-console-template for more information
 Console.WriteLine("Hello, World!");
 KanbanContextFactory factory = new KanbanContextFactory();
-
 KanbanContext context = factory.CreateDbContext(args);
 
 var tasks1 = new Assignment3.Entities.Task{Id = 1, Title = "HewwoTwere", AssignedTo = null, Description = "uwu the owo", State = State.New, tags = new List<Tag>{}};
@@ -15,6 +14,7 @@ tag1.Tasks.Add(tasks1);
 context.Tags.Add(tag1);
 context.Tasks.Add(tasks1);
 context.Users.Add(user1);
+context.Database.ExecuteSqlRaw("Select name from user where name = 'ObiWan'");
 
 context.SaveChanges();
 

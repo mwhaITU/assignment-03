@@ -5,7 +5,7 @@ using Assignment3.Entities;
 
 namespace Assignment3;
 
-internal class KanbanContextFactory : IDesignTimeDbContextFactory<KanbanContext>
+public class KanbanContextFactory : IDesignTimeDbContextFactory<KanbanContext>
 {
     public KanbanContext CreateDbContext(string[] args)
     {
