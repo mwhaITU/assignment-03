@@ -12,9 +12,11 @@ public class Task
 
     [StringLength(int.MaxValue)]
     public string? Description { get; set; }
+    public DateTime Created { get; set; }
 
     [Required]
     public State State { get; set; }
 
     public ICollection<Tag>? tags { get; set; }
+    public DateTime StateUpdated { get; set; }
 }
