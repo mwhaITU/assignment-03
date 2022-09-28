@@ -7,7 +7,7 @@ public class TagRepository : ITagRepository
     {
         _context = context;
     }
-    
+
     public (Response Response, int TagId) Create(TagCreateDTO tag)
     {
         var entity = _context.Tags.FirstOrDefault(t => t.Name == tag.Name);
@@ -75,17 +75,16 @@ public class TagRepository : ITagRepository
 
     public Response Delete(int tagId, bool force = false)
     {
-        var tag = _context.Tags.Include(t => t.Tasks).FirstOrDefault(t => t.Id == tagId);
+        var tag = (from t in _context.Tags
+                    where t.Id == tagId
+                    select t).FirstOrDefault();
         Response response;
         if (tag is null)
         {
             response = Response.NotFound;
         }
-        else if (tag.Tasks!.Any())
+        else if (tag.Tasks!.Any() && !force)
         {
-            response = Response.Conflict;
-        }
-        else if (!force) {
             response = Response.Conflict;
         }
         else
