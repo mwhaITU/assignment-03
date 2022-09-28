@@ -2,11 +2,12 @@ namespace Assignment3.Entities;
 using Assignment3.Core;
 public class TagRepository : ITagRepository
 {
-    private readonly KanbanContext _context;
-
-    public TagRepository(KanbanContext context) {
+     private readonly KanbanContext _context;
+        public TagRepository(KanbanContext context)
+    {
         _context = context;
     }
+    
     public (Response Response, int TagId) Create(TagCreateDTO tag)
     {
         var entity = _context.Tags.FirstOrDefault(t => t.Name == tag.Name);

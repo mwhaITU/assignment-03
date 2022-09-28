@@ -34,14 +34,15 @@ public class TagRepositoryTests
     }
 
     [Fact]
-    public void BuisnessRule1()
+    public void Tag_Can_Be_Deleted_Using_The_Force()
     {
-        var (response, created) = _repository.Create(new TagCreateDTO("myTag"));
+        var response = _repository.Delete(1, true);
 
-        response.Should().Be(Response.Created);
+        response.Should().Be(Response.Deleted);
 
-        created.Should().Be(2);
+        var entity = _context.Tags.Find(1);
 
+        entity.Should().BeNull();
     }
 
 }
