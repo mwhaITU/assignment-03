@@ -12,6 +12,7 @@ public partial class KanbanContext : DbContext
 
     public virtual DbSet<Task> Tasks => Set<Task>();
 
+
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Task>().Property(t => t.State).HasConversion(s => s.ToString(), s => (State)Enum.Parse(typeof(State), s));
